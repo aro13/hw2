@@ -20,6 +20,19 @@ let blockchain = [
   { fromUser: "jeff", toUser: "ben", amount: 1750 }
 ]
 
+let getBalance = function(name) {
+  let userBalance = 0;
+  for(let i = 0; i < blockchain.length; i++) {
+      if (blockchain[i].fromUser === name) {
+        userBalance = userBalance - blockchain[i].amount;
+      }
+      else if (blockchain[i].toUser === name) {
+        userBalance = userBalance + blockchain[i].amount;
+      }
+  }
+  return userBalance;
+}
+
 // Write a function that, when given a username (i.e. brian, ben, or jeff),
 // returns the number of KelloggCoin that user has in their KelloggCoin "wallet".
 
